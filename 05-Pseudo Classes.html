@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono&family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Pseudo Classes</title>
+  </head>
+  <body>
+    <main class="container">
+      <article class="content-wrapper rounded">
+        <h1 lang="en" dir="ltr" class="main-title">
+          <span>Pseudo Classes</span><span>الفِئات الوهميَّة</span>
+        </h1>
+        <p>
+          لنتخيَّل أن هناك زر مُعيَّن، ونحن نريد أن نغير لون نص هذا الزر عند
+          توجيه الماوس نحو هذا الزر. لحُسن الحَظ، يمكننا تطبيق ذلك عن طريق ال
+          pseudo-classes في CSS.
+        </p>
+        <p>
+          ال pseudo-classes هي تلك التي نستخدمها لتطبيق بعض ال styles على
+          العناصر عند حدوث شيءٍ مُعيَّن:
+        </p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="pseudo-classes"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/QWoqyMQ?default-tab=html%2Cresult&editable=true&theme-id=dark"
+          frameborder="no"
+          loading="fast"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/QWoqyMQ">
+            pseudo-class</a
+          >
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />في المثال السابق، استخدمنا ال
+          <code lang="en" dir="ltr">:hover</code> pseudo-class لإضافة styles
+          للعنصر المُحَدَّد (<span style="color: #aa00ff">button</span>)،
+          وبالتالي ستُطبق ال styles على الزر المُحَدَّد عندما يتم توجيه المؤشِّر
+          نحوه.
+        </p>
+        <p>
+          هذا يشبه أحداث <code>onMouseEnter</code> /
+          <code>onMouseLeave</code> في JavaScript، وهي تُستخدم لتحديد ما يحدث
+          عندما يمرر المستخدم الماوس فوق عنصر ما أو يبعده عنه، ولكن سنحتاج إلى
+          استخدام <code>addEventLestener</code> على العناصر التي نريد العمل
+          عليها، وسنحتاج أيضًا لإدارة ال
+          <span style="color: blue">state</span> الخاص بالعنصر المُراد العمل
+          عليه، وذلك لمعرفة ما إذا كان العنصر يتم تمرير الماوس فوقه في الوقت
+          الحالي أم لا، هذا يعني أنه علينا تتبع هذه الحالة وتحديثها استجابةً
+          لأحداث الماوس.
+        </p>
+
+        <p>
+          من ناحية أخرى، في CSS، تتم هذه العملية بشكل أبسط بكثير. CSS يوفر لنا
+          ال ـpseudo-classes، وهي طريقة لتطبيق ال styles على عناصر HTML بناءً
+          على حالتها. على سبيل المثال، يمكن استخدام pseudo-class مثل
+          <code lang="en" dir="ltr">:hover</code>
+          لتغيير style العنصر عندما يمرر المستخدم الماوس فوقه. هذا يتم تلقائيًا
+          في CSS دون الحاجة لكتابة أي JavaScript لتتبع الحالة أو استخدام
+          addEventLestener.
+        </p>
+        <p>
+          توفِّر لنا CSS
+          <a
+            target="_blank"
+            class="link"
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes"
+            >العديد من ال pseudo-classes</a
+          >، وسوف نتعلَّم الكثير منهم لاحِقًا بإذن الله، لذا فلنركِّز الآن على
+          بعضٍ منهم.
+        </p>
+
+        <h2 lang="en" dir="ltr" class="sec-title">focus Pseudo-class</h2>
+        <p>
+          تأتي لغة HTML مع عناصر تفاعلية مثل الأزرار والروابط وال input fields.
+          عندما نتفاعل مع أحد هذه العناصر (سواء بالضغط عليها أو التنقل إليها
+          باستخدام المفتاح Tab)، يصبح العنصر في حالة تركيز (focus). في هذه
+          الحالة، يمكننا الكتابة في ال input field أو الضغط على مفتاح "Enter"
+          لاتباع رابط.
+        </p>
+        <p>
+          تسمح لنا <code lang="en" dir="ltr">:focus</code> بتطبيق بعض ال styles
+          عندما يكون العنصر في حالة تركيز أو focus.
+        </p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="Focus Pseudo-classes"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/oNVGYMG?default-tab=html%2Cresult&editable=true&theme-id=dark"
+          frameborder="no"
+          loading="fast"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/oNVGYMG">
+            Focus Pseudo-classes</a
+          >
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />حاول التركيز على الأزرار واحدًا تلو الآخر ليتم تطبيق ال styles
+          التي حددناها في الأعلى.
+        </p>
+        <aside class="info-field warn">
+          <div class="info-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"
+              ></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <strong class="aside-header">
+            لماذا يجب علينا إستخدام ال
+            <span lang="en" dir="ltr">focus Pseudo-class</span>؟
+          </strong>
+          <p>
+            من الممكن أنك تتسائل، لماذا من الضروري إستخدام ال focus styling،
+            لماذا من المهم معرفة العنصر الذي في حالة focus؟
+          </p>
+          <p>
+            ال focus styles مهمة جدا لل accessibility وتحسين تجربة المستخدم، وهي
+            مفيدة أيضًا بشكل أساسي للأشخاص الذين لا يستخدمون جهاز إدخال (مثل
+            الماوس، لوحة اللمس، أو الإصبع على شاشة تعمل باللمس). فهي تساعد
+            المستخدمين الذين يعتمدون على لوحة المفاتيح في التنقل. تُظهر ال focus
+            styles أين أنت على الصفحة، وأي عنصر تم اختياره.
+          </p>
+          <p>
+            نصيحة: لا تُضف
+            <code>outline: none</code>
+            للتخلص من حدود ال focus التي تُضاف افتراضيًّا عن طريق المتصفح (ما لم
+            تستبدلها بمجموعة من ال styles الأكثر وضوحًا ومنَاسَبَةً لموقعك).
+          </p>
+        </aside>
+        <h2 lang="en" dir="ltr" class="sec-title">checked Pseudo-class</h2>
+        <p>
+          ال checked Pseudo-class يتم تطبيقها فقط على ال
+          <a
+            href="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox"
+            target="_blank"
+            class="link"
+            >checkboxes</a
+          >
+          و
+          <a
+            href="https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_radio"
+            target="_blank"
+            class="link"
+            >radio buttons</a
+          >، يُمكنك تطبيق styles إضافية للدلالة على أن هذه ال checkboxes أو
+          radio buttons مُفعَّلة أو نشطة.
+        </p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="Checked Pseudo-class
+"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/XWGeMPw?default-tab=html%2Cresult&editable=true&theme-id=dark"
+          frameborder="no"
+          loading="fast"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/XWGeMPw">
+            Checked Pseudo-class
+          </a>
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />
+          المتصفحات لا تقدم مرونة كبيرة عندما يتعلق الأمر بال checkboxes و radio
+          buttons، لكن هذه الحيلة الذكية تتيح لك تطبيق بعض خصائص CSS بناءً على
+          حالتها.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>

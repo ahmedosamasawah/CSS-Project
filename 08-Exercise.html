@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?faily=Fira+Mono&family=Source+Code+Pro&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Exercise</title>
+  </head>
+  <body>
+    <main class="container">
+      <article class="content-wrapper rounded">
+        <h1 class="main-title">تمرين</h1>
+        <p>
+          في هذا التمرين،سوف نقوم بالتعديل على مقالة عن النبي ﷺ لتحتوي على روابط
+          مُزيَّنة.
+        </p>
+        <p>هذه هي النتيجة المُتوقَّعة:</p>
+        <div class="centered-img">
+          <img src="/assets/08-Exercise-01.png" alt="Exercise Image" />
+        </div>
+        <p>إليك ما ستفعله:</p>
+        <ul class="list">
+          <li>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path
+                  d="m12.718 4.707-1.413-1.415L2.585 12l8.72 8.707 1.413-1.415L6.417 13H20v-2H6.416l6.302-6.293z"
+                />
+              </svg>
+            </span>
+            <div>
+              يجب أن تكون الروابط الرئيسية للمقالات بلون <code>deeppink</code>،
+              دون تسطير. عند تمرير المؤشر فوقها، سيظهر تسطير.
+            </div>
+          </li>
+          <li>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path
+                  d="m12.718 4.707-1.413-1.415L2.585 12l8.72 8.707 1.413-1.415L6.417 13H20v-2H6.416l6.302-6.293z"
+                />
+              </svg>
+            </span>
+            <div>
+              يجب أن تكون الروابط في آخر المقالة باللون الأسود، مع تسطير. عند
+              تمرير المؤشر فوقها، سيختفي التسطير.
+            </div>
+          </li>
+        </ul>
+        <p>يجب أن يتم ذلك دون تعديل HTML: لا يجب إضافة أي classes للعناصر.</p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="1st exercise"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/YzgepPz?default-tab=html%2Cresult&editable=true"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/YzgepPz">
+            1st exercise</a
+          >
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+      </article>
+
+      <article class="content-wrapper rounded">
+        <h2 class="sec-title">الحل</h2>
+        <p>
+          أولاً، قد تفكر في إنشاء class لكل رابط، ثم استخدام هذا الـclass كمُحدد
+          لتطبيق styles الخاصة بكل عنصر على حدة، كالتالي:
+        </p>
+        <div class="video-wrapper">
+          <video
+            id="exOneVid"
+            src="/assets/08-Exercise-01.webm"
+            controls
+          ></video>
+        </div>
+        <p>
+          ولكن، تكمن المشكلة في أن استخدام class بشكل مكثَّف قد لا يكون أمراً
+          مثالياًً. السبب في ذلك هو أنه مع توسع الموقع، سيُصبح من الضروري تذكر
+          الـ class الخاص بكل عنصر لاستخدامه كمُحدد في تزيين هذا العنصر. لذا،
+          يُفضل استخدام child combinator في هذه الحالة، كالتالي:
+        </p>
+        <ul class="list">
+          <li>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path
+                  d="m12.718 4.707-1.413-1.415L2.585 12l8.72 8.707 1.413-1.415L6.417 13H20v-2H6.416l6.302-6.293z"
+                />
+              </svg>
+            </span>
+            <div>
+              الخطوة الأولى هي تحديد العناصر وفقًا للـ container الخاص بها.
+            </div>
+          </li>
+        </ul>
+        <pre
+          lang="en"
+          dir="ltr"
+        ><code><div><span class="selector">article a</span><span> {</span></div><div><span class="property">  color</span><span>:</span><span> deeppink;</span></div><div><span class="property">  text-decoration</span><span>:</span><span> none;</span></div><div><span> }</span></div><br><div><span class="selector">aside a</span><span> {</span></div><div><span class="property">  color</span><span>:</span><span> black;</span></div><div><span class="property">  text-decoration</span><span>:</span><span> underline;</span></div><div><span> }</span></div></code></pre>
+        <p>
+          نحن نقول هنا: طبق الـ styles المذكورة على كل عنصر من نوع
+          <code>&lt;a&gt;</code> موجود داخل العنصر <code>&lt;article&gt;</code>،
+          وبعدها قم بتطبيق ال styles المذكورة على كل عنصر من نوع
+          <code>&lt;a&gt;</code> داخل العنصر <code>&lt;aside&gt;</code>.
+        </p>
+        <ul class="list">
+          <li>
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+                <path
+                  d="m12.718 4.707-1.413-1.415L2.585 12l8.72 8.707 1.413-1.415L6.417 13H20v-2H6.416l6.302-6.293z"
+                />
+              </svg>
+            </span>
+            <div>
+              الخطوة الثانية هي تطبيق ال styles الخاصة بالـ<code
+                lang="en"
+                dir="ltr"
+                >:hover</code
+              >
+            </div>
+          </li>
+        </ul>
+        <pre
+          lang="en"
+          dir="ltr"
+        ><code><div><span class="selector">article a:hover</span><span> {</span></div><div><span class="property">  text-decoration</span><span>:</span><span> underline</span></div><div><span> }</span></div><br><div><span class="selector">aside a:hover</span><span> {</span></div><div><span class="property">  text-decoration</span><span>:</span><span> none;</span></div><div><span> }</span></div></code></pre>
+      </article>
+    </main>
+    <script src="/script/script.js"></script>
+  </body>
+</html>

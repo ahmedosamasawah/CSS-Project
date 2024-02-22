@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="container">
+      <header class="main-img-wrapper">
+        <div class="main-title-bg"></div>
+        <picture>
+          <img
+            src="../assets/02-hero-img.png"
+            alt="smiling cardboard box"
+            class="main-img"
+          />
+        </picture>
+        <div class="on-img-title-wrapper" style="text-align: left">
+          <h2 class="sub-title-on-img">Module 2</h2>
+          <h2 class="main-title-on-img">Rendering Logic I</h2>
+        </div>
+      </header>
+      <article class="content-wrapper">
+        <p>
+          الهدف الأساسي من CSS هو منحك القدرة على التحكم في كل من مظهر وترتيب
+          محتوى صفحتك.
+        </p>
+        <p>
+          عندما نبدأ في تصميم وترتيب صفحتنا، الصفحة لا تكون فارغة تمامًا؛ لأن ال
+          HTML Tags تحتوي على بعض الـ Default Styles "أي بعض الـ styles التي
+          تكون مُضمنة في عناصر HTML افتراضيًا". على سبيل المثال، الـعنصر
+          <code>&lt;a&gt;</code> في HTML يحتوي على الـ styles الآتية افتراضياً:
+        </p>
+        <pre
+          lang="en"
+          dir="ltr"
+        ><code><div><span class="selector">a</span><span> {</span></div><div><span class="property">  color</span><span>:</span><span> -webkit-link;</span></div><div><span class="property">  cursor</span><span>:</span><span> pointer;</span></div><div><span class="property">  text-decoration</span><span>:</span><span> underline;</span></div><div><span> }</span></div></code></pre>
+        <p>
+          تلك الـ Styles هي جزء مما يسمى بـ
+          <a
+            class="link"
+            target="_blank"
+            href="https://www.geeksforgeeks.org/what-is-a-user-agent-stylesheet/"
+            ><em>User-agent Stylesheet</em></a
+          >. كل متصفح يحتوي على Stylesheet خاص به يشمل مجموعة من الـ Base Styles
+          مثل هذه. على سبيل المثال: من الممكن أن تختلف الـ Default Styles الخاصة
+          بعنصر ما في متصفح Chrome عن الـ Default Styles الخاصة بنفس العنصر في
+          متصفح Firefox.
+        </p>
+        <p>
+          إذا كنت قد استخدمت
+          <a
+            href="https://www.joshwcomeau.com/css/custom-css-reset/"
+            target="_blank"
+            class="link"
+            >CSS Reset</a
+          >
+          من قبل، فهو يهدف إلى "موازنة" User-agent Stylesheets عبر المتصفحات
+          المختلفة، ويضمن أن كل متصفح يبدأ بنفس مجموعة الـ Core Styles. "وذلك
+          لجعل code الـ CSS الخاص بنا يعمل على كل المتصفحات بنفس الطريقة، وإلا
+          ستحدث بعض المشاكل بسبب اختلاف ال Default Styles من للعناصر في HTML
+          متصفح إلى آخر."
+        </p>
+        <aside class="info-field note">
+          <div class="info-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <strong class="aside-header" lang="en" dir="ltr"
+            >Chrome's source code</strong
+          >
+          <p>
+            إذا كنت مهتمًا بمعرفة المزيد عن User-agent Stylesheet، يمكنك مشاهدة
+            الـ
+            <a
+              href="https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/html/resources/html.css"
+              target="_blank"
+              class="link"
+              >Stylesheet الكامل لمتصفح كروم</a
+            >، من الـ Source Code الخاص به.
+          </p>
+          <p>
+            هذا الـ Stylesheet يتضمن الكثير من CSS الغامض. قد يكون الأمر مثيرًا
+            للاهتمام من الناحية الأكاديمية، ولكن لا يوجد الكثير من الفائدة
+            العملية في دراسته.
+          </p>
+        </aside>
+        <h3 class="sec-title" lang="en" dir="ltr">
+          <span>Inheritance</span> <span>التوريث</span>
+        </h3>
+        <p>
+          لنفترض أن لدينا عنصر <code>&lt;p&gt;</code> ملون باللون الوردي يحتوي
+          على عنصر
+          <code
+            >&lt;<a
+              href="https://www.w3schools.com/tags/tag_em.asp"
+              target="_blank"
+              class="link"
+            >
+              em</a
+            >&gt;</code
+          >
+          داخله:
+        </p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="Inheritance"
+          src="https://codepen.io/Ahmed-Sawah/embed/wvOZzKR?default-tab=html%2Cresult&editable=true&theme-id=dark"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Sawah/pen/wvOZzKR"> Inheritance</a>
+          by Ahmed-Sawah (<a href="https://codepen.io/Ahmed-Sawah"
+            >@Ahmed-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />لاحظ أن هناك عنصر <code>&lt;em&gt;</code> يحيط بكلمة
+          <code>you</code>.
+        </p>
+        <p>
+          كيف تلونت كلمة <code>you</code> باللون الوردي؟ إذا فكرت في الأمر، لم
+          نعط أي style لعنصر <code>&lt;em&gt;</code> حتى يتلون باللون الوردي،
+          فقط أعطينا عنصر الـ <code>&lt;p&gt;</code>.
+        </p>
+        <p>
+          الجواب هو أن بعض خصائص CSS
+          <span style="color: #da0079">تُورَّث</span>. عندما أطبق لونًا على
+          عنصر، يتم تمرير هذه القيمة إلى جميع الأبناء والأحفاد.
+        </p>
+        <p>ولكن، ليست كل خصائص CSS قابلة للوراثة. دعونا ننظر إلى مثال آخر:</p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="Inheritance 2"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/GReLjmX?default-tab=html%2Cresult&editable=true&theme-id=dark"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/GReLjmX">
+            Untitled</a
+          >
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />
+          الموقف مشابه، ولكن بدلاً من تطبيق لون نص وردي، نقوم بتطبيق
+          <code>border</code>
+          وردي.
+        </p>
+        <p>
+          لاحظ أن قيمة الـ <code>border</code> لا تُورَّث إلى عنصر الـ
+          <code>&lt;em&gt;</code>. لا يزال لدينا border واحد فقط، وهو حول عنصر
+          الـ <code>&lt;p&gt;</code> بأكمله.
+        </p>
+        <p>
+          إذا قمنا بإضافة نفس قيمة الـ <code>border</code> إلى العنصرين
+          <code>&lt;p&gt;</code>, <code>&lt;em&gt;</code> معًا، سنرى
+          <code>border</code>
+          ثانيًا داخل فقرتنا:
+        </p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="Inheritance 3"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/mdogrqz?default-tab=html%2Cresult&editable=true"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/mdogrqz">
+            Inheritance 3</a
+          >
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />إذا كنت قد عملت مع CSS لفترة من الوقت، ربما لا يكون هذا السلوك
+          مفاجئًا لك، ولكنه يبدو غريبًا بعض الشيء عند التفكير فيه!
+        </p>
+        <p>
+          قرر الأشخاص الذين كتبوا مواصفات CSS جعل بعض الخصائص قابلة للوراثة
+          لتوفير بعض الوقت. وذلك لتحسين تجربة المطور DX. سيكون الأمر مزعجًا
+          للغاية إذا اضطررنا إلى إعادة تطبيق نفس styles لون النص على كل عنصر
+          فرعي سواءً كان طفلًا أو حفيدًا.
+        </p>
+        <p>
+          معظم الخصائص التي تُورَّث متعلقة بالـ typography، مثل `color`,
+          `font-size`, `text-shadow`، وهكذا. يمكنك العثور على
+          <a
+            href="https://www.sitepoint.com/css-inheritance-introduction/#list-css-properties-inherit"
+            target="_blank"
+            class="link"
+            >قائمة للخصائص القابلة للوراثة</a
+          >.
+        </p>
+        <p>
+          إذا فكرت في الأمر قليلًا ستجد أنه يُشبه بحد كبير الـ
+          <a
+            href="https://www.youtube.com/watch?v=jkOas2I7NJo"
+            target="_blank"
+            class="link"
+            >prototypical inheritance</a
+          >
+          في JavaScript، لاحظ كود الـ HTML التالي:
+        </p>
+        <iframe
+          height="400"
+          style="width: 100%"
+          scrolling="no"
+          title="Inheritance 4"
+          src="https://codepen.io/Ahmed-Osama-Al-Sawah/embed/KKEYgRd?default-tab=html%2Cresult&editable=true"
+          frameborder="no"
+          loading="lazy"
+          allowtransparency="true"
+          allowfullscreen="true"
+        >
+          See the Pen
+          <a href="https://codepen.io/Ahmed-Osama-Al-Sawah/pen/KKEYgRd">
+            Inheritance 4</a
+          >
+          by Ahmed Osama Al-Sawah (<a
+            href="https://codepen.io/Ahmed-Osama-Al-Sawah"
+            >@Ahmed-Osama-Al-Sawah</a
+          >) on <a href="https://codepen.io">CodePen</a>.
+        </iframe>
+        <p>
+          <br />
+          ستجد أن عندنا عنصر <code>&lt;main&gt;</code> بداخله عنصر
+          <code>&lt;p&gt;</code> وبداخل العنصر <code>&lt;p&gt;</code> عنصر
+          <code>&lt;span&gt;</code>. ولنفترض أننا نريد أن نعرف ما هو لون العنصر
+          <code>&lt;span&gt;</code>.
+        </p>
+        <p>
+          إحدى الطرق هي البحث عن إذا كان العنصر <code>&lt;span&gt;</code> يحمل
+          أي styles، وفي حالتنا لا يوجد أي styles مُعطاه لهذا العنصر، لذا سنضطر
+          للبحث في ال styles الخاصة بالعنصر الأب للعنصر
+          <code>&lt;span&gt;</code>، وهو العنصر <code>&lt;p&gt;</code>، وبالفعل
+          سنجد أن العنصر <code>&lt;p&gt;</code> تم إعطاؤه
+          <code>color: red;</code>. وبالتالي سيرث عنصر ال
+          <code>&lt;span&gt;</code> نفس اللون.
+        </p>
+        <p>
+          ولكن ماذا سيحدث إذا لم يكن يحتوي عنصر ال <code>&lt;p&gt;</code> على
+          هذا ال style؟ في هذه الحالة سوف نبحث في ال styles الخاصة بالعنصر الأب
+          للعنصر <code>&lt;p&gt;</code>، وهو العنصر <code>&lt;main&gt;</code>،
+          وبالفعل سنجد أن العنصر <code>&lt;main&gt;</code> تم إعطاؤه
+          <code>color: black;</code>. وبالتالي سيرث عنصر ال
+          <code>&lt;p&gt;</code> وعنصر الـ <code>&lt;span&gt;</code> نفس اللون.
+        </p>
+        <p>
+          وهذه فعلًا نفس طريقة عمل الـ prototypical inheritance. أنظر كود
+          JavaScript التالي:
+        </p>
+        <iframe
+          title="Inheritance"
+          scrolling="no"
+          loading="lazy"
+          style="
+            height: 400px;
+            width: 100%;
+            border: 1px solid black;
+            border-radius: 5px;
+          "
+          src="https://v24.livecodes.io/?x=id/64g8fkmedwy&embed=true"
+        >
+          See the project
+          <a href="https://v24.livecodes.io/?x=id/64g8fkmedwy" target="_blank"
+            >Untitled Project</a
+          >
+          on <a href="https://livecodes.io" target="_blank">LiveCodes</a>.
+        </iframe>
+
+        <p>
+          <br />ستجد أن لدينا سلسلة من التوريث بدأت من ال
+          <code>Main class</code> مرورًا بالـ
+          <code>Paragraph class</code> وانتهاءً بالـ <code>Span class</code>.
+        </p>
+        <p>
+          والآن إذا حاولنا أن نصل إلى <code>s.color</code> فسيتم البحث في ال
+          <code>Span class</code> عن خاصية ال <code>color</code>، وعندما لا يجد
+          شيئًا سيضطر للبحث في الـ parent class وهو الـ
+          <code>Paragraph class</code>، وهناك سيجد الخاصية. ومثل ما فعلنا في CSS
+          إذا لم يجد الخاصية في الـ parent class فبالتالي سيضطر للبحث في ال
+          grandparent class ولن يتوقف حتى يجد الخاصية <code>color</code>.
+        </p>
+        <p>
+          أجد حقًا أن هذا تشبيه جيد وآمل أن يساعدك على التفكير في الأمر. ولكن
+          يجب أن أقول أن هذا التشبيه ليس دقيقًا تمامًا، ولكن هو مثال جيد ومُفيد
+          لفهم التوريث في CSS.
+        </p>
+      </article>
+    </main>
+  </body>
+</html>
